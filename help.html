@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ajuda - Valorize</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <main class="form-wrapper">
+    <div class="form-box">
+      <h2>Preciso de ajuda</h2>
+      <p>Se você tiver problemas para acessar sua conta ou precisa de suporte, veja abaixo algumas soluções rápidas:</p>
+      <ul>
+        <li>Esqueceu a senha: clique em "Esqueceu a senha?" na tela de login para solicitar um link de redefinição.</li>
+        <li>Problemas com e-mail: verifique sua caixa de spam ou se o e-mail cadastrado está correto.</li>
+        <li>Cadastro: se não conseguiu realizar o cadastro, certifique-se de preencher todos os campos obrigatórios.</li>
+        <li>Outros: entre em contato com nosso suporte fictício pelo e-mail suporte@valorize.exemplo</li>
+      </ul>
+      <h3>Entrar em contato com o suporte</h3>
+      <form class="help-form" action="#" method="post">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <input type="text" name="assunto" placeholder="Assunto" required>
+        <textarea name="mensagem" placeholder="Descreva sua dúvida ou problema" rows="5" required></textarea>
+        <div class="help-actions">
+          <button type="submit" class="btn help-submit">Enviar</button>
+          <a href="login.html" class="btn btn-secondary">Voltar</a>
+        </div>
+        <div class="help-success" id="helpSuccess" style="display:none; margin-top:12px;">Mensagem enviada com sucesso. Nosso suporte entrará em contato em breve.</div>
+      </form>
+      <p style="margin-top:16px;"><a href="login.html">Voltar ao login</a></p>
+    </div>
+  </main>
+</body>
+</html>
+
+<script>
+  // Validação simples e comportamento do formulário de ajuda
+  (function(){
+    const form = document.querySelector('.help-form');
+    const success = document.getElementById('helpSuccess');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      // checar campos obrigatórios
+      const nome = form.nome.value.trim();
+      const email = form.email.value.trim();
+      const assunto = form.assunto.value.trim();
+      const mensagem = form.mensagem.value.trim();
+      if (!nome || !email || !assunto || !mensagem) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+      // simula envio e mostra mensagem de sucesso
+      success.style.display = 'block';
+      form.reset();
+      setTimeout(() => { success.style.display = 'none'; }, 7000);
+    });
+  })();
+</script>

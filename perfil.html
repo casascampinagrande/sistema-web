@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meu Perfil</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+	<div class="top-inner">
+		<div class="logo">
+			<a href="index.html"><h1>Valorize</h1></a>
+		</div>
+
+		<nav class="menu">
+			<a href="index.html">Início</a>
+			<a href="perfil.html">Meu Perfil</a>
+			<a href="suporte.html">Suporte</a>
+		</nav>
+
+    <div class="actions" id="headerActions">
+      <a href="login.html" class="btn btn-secondary">Entrar</a>
+      <a href="#" class="btn cta">Anunciar grátis</a>
+    </div>
+	</div>
+</header>
+
+  <main class="page-center">
+    <div class="profile-hero">
+      <div class="profile-container">
+        <div class="card profile-card">
+      
+      <div class="profile-header">
+        <div class="avatar">
+          <img src="https://via.placeholder.com/96" alt="Avatar">
+        </div>
+        <div class="profile-info">
+          <h2 id="userName">Maria Silva</h2>
+          <p id="userEmail" class="muted">maria@example.com</p>
+
+          <div class="profile-actions">
+            <button id="editBtn" class="btn btn-secondary">Editar perfil</button>
+            <a href="esqueceu_senha.html" class="btn">Alterar senha</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-body">
+
+        <div class="profile-main">
+          <section id="details" class="profile-details">
+            <h3>Detalhes da conta</h3>
+            <dl>
+              <dt>Nome</dt><dd id="detailName">Maria Silva</dd>
+              <dt>Como prefere ser chamado</dt><dd id="detailNick">Mari</dd>
+              <dt>Telefone</dt><dd id="detailPhone">(83) 99999-9999</dd>
+            </dl>
+          </section>
+
+          <!-- listings moved below -->
+        </div>
+      </div>
+
+      <section id="listings" class="my-listings">
+        <h3>Meus anúncios</h3>
+        <div class="listings">
+          <div class="card small-card">
+            <img src="https://via.placeholder.com/300x160" alt="Anúncio">
+            <h4>Casa no Centro</h4>
+            <p class="muted">Campina Grande - PB</p>
+            <div class="listing-actions"><a class="btn btn-secondary">Editar</a> <a class="btn">Ver</a></div>
+          </div>
+
+          <div class="card small-card">
+            <img src="https://via.placeholder.com/300x160" alt="Anúncio">
+            <h4>Apartamento mobiliado</h4>
+            <p class="muted">João Pessoa - PB</p>
+            <div class="listing-actions"><a class="btn btn-secondary">Editar</a> <a class="btn">Ver</a></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="editForm" class="hidden">
+        <form id="profileForm" class="form">
+          <label for="name">Nome completo</label>
+          <input id="name" name="name" type="text" value="Maria Silva" required>
+
+          <label for="nick">Como prefere ser chamado</label>
+          <input id="nick" name="nick" type="text" value="Mari">
+
+          <label for="phone">Telefone</label>
+          <input id="phone" name="phone" type="tel" value="(83) 99999-9999">
+
+          <div class="actions">
+            <button type="submit" class="btn">Salvar</button>
+            <button type="button" id="cancelEdit" class="btn btn-secondary">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const editBtn = document.getElementById('editBtn');
+      const editFormWrap = document.getElementById('editForm');
+      const profileForm = document.getElementById('profileForm');
+      const cancelEdit = document.getElementById('cancelEdit');
+      const menuLinks = document.querySelectorAll('.profile-menu nav a');
+      const menuEdit = document.getElementById('menuEdit');
+      const editBtnFloat = document.getElementById('editBtnFloat');
+
+      editBtn.addEventListener('click', function(){
+        editFormWrap.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      menuLinks.forEach(function(a){
+        a.addEventListener('click', function(e){
+          // Marca item ativo e navega para seção
+          menuLinks.forEach(x=> x.parentElement.classList.remove('active'));
+          this.parentElement.classList.add('active');
+          // Se href iniciar com #, faz scroll suave
+          const href = this.getAttribute('href');
+          if(href && href.startsWith('#')){
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      if(menuEdit){
+        menuEdit.addEventListener('click', function(e){
+          // abre o formulário de edição
+          e.preventDefault();
+          editFormWrap.classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      if(editBtnFloat){
+        editBtnFloat.addEventListener('click', function(){
+          editFormWrap.classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      cancelEdit.addEventListener('click', function(){
+        editFormWrap.classList.add('hidden');
+      });
+
+      profileForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        // Simulação: atualiza detalhes visuais
+        document.getElementById('userName').textContent = profileForm.name.value;
+        document.getElementById('detailName').textContent = profileForm.name.value;
+        document.getElementById('detailNick').textContent = profileForm.nick.value;
+        document.getElementById('detailPhone').textContent = profileForm.phone.value;
+        editFormWrap.classList.add('hidden');
+      });
+    })();
+  </script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

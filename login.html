@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<main class="form-wrapper">
+	<div class="form-box">
+		<h2>Entrar</h2>
+		<form action="#" method="post" class="form">
+			<label class="sr-only">E-mail</label>
+			<input type="email" name="email" placeholder="E-mail" required>
+
+			<label class="sr-only">Senha</label>
+			<input type="password" name="senha" placeholder="Senha" required>
+
+			<div class="actions">
+				<button type="submit" class="btn">Entrar</button>
+				<a href="register.html" class="btn btn-secondary">Cadastrar</a>
+			</div>
+		</form>
+		<a href="esqueceu_senha.html" class="small-link">Esqueceu a senha?</a>
+		<a href="help.html" class="small-link help-link">Preciso de ajuda</a>
+	</div>
+</main>
+
+
+<div id="login-message" class="login-message" aria-live="polite"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/login.js"></script>
+
+</body>
+</html>
