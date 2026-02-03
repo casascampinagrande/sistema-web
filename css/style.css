@@ -1,0 +1,71 @@
+/* Legacy entrypoint: importa estilos comuns usados por páginas */
+@import url("common.css");
+
+/* Arquivo reservado para customizações específicas de index.html
+   (atualmente vazio: as regras globais ficam em common.css) */
+
+/* -------------------- Estilos específicos para index.html -------------------- */
+/* sobrescreve o comportamento de centralização global (usado em páginas de formulário)
+   para que a página inicial use o fluxo normal e o header fique no topo */
+body { display: block; min-height: auto; align-items: normal; justify-content: normal; }
+
+.topo { display:flex; align-items:center; justify-content:space-between; gap:16px; width:100%; padding:18px 28px; box-sizing:border-box; background: rgba(255,255,255,0.6); border-bottom:1px solid rgba(16,24,40,0.04); backdrop-filter: blur(4px); }
+.topo h1 { margin:0; font-size:20px; display:flex; align-items:center; gap:8px; }
+.top-inner { display:flex; align-items:center; gap:18px; width:100%; }
+.logo { flex: 0 0 auto; margin-right: auto; }
+.logo h1 { margin:0; font-size:20px; }
+/* remove underline and force black color for the logo link */
+.logo a { text-decoration: none; color: #000; }
+.logo a:hover { text-decoration: none; color: #000; }
+.logo h1 { color: #000; }
+
+.search { display:flex; gap:8px; align-items:center; flex:1 1 420px; }
+.search input[type="search"] { flex:1; padding:12px 14px; border-radius:28px; border:1px solid #e6e9ee; background:#fff; }
+.search select { padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; background:#fff; }
+.search button { background:transparent; border:0; font-size:16px; cursor:pointer; }
+
+.menu { display:flex; gap:12px; align-items:center; flex:0 0 auto; }
+.menu a { color:#0f172a; text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:600; }
+.menu a:hover { background: rgba(45,143,111,0.06); color: var(--accent-600); }
+
+.actions { display:flex; gap:12px; align-items:center; }
+.actions .btn-secondary { padding:8px 14px; }
+.btn.cta { background: linear-gradient(90deg,#ff8a00,#ff6000); color:#fff; border-radius:28px; padding:10px 18px; }
+.btn.cta:hover { filter:brightness(0.95); }
+
+.topo { padding:12px 20px; }
+.topo nav a:hover { background: rgba(45,143,111,0.08); color: var(--accent-600); }
+
+.novo-anuncio { display:flex; align-items:center; padding:18px 28px; width:100%; box-sizing:border-box; justify-content:center; text-align:center; }
+.novo-anuncio h2 { margin:0; font-size:18px; }
+#btnNovo { margin-left:0; }
+
+/* Ajustes para selects de filtros na index */
+.filtros { padding:14px 28px; gap:14px; display:flex; justify-content:center; }
+.filtros select { padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; background:#fff; }
+
+/* botão pesquisar ao lado dos filtros */
+.filtros .btn { padding:10px 14px; border-radius:8px; }
+
+@media (max-width:720px) {
+   .filtros { flex-direction:column; align-items:center; }
+   .filtros .btn { width:100%; }
+}
+
+/* Pequeno ajuste para os cards na página inicial */
+.cards { padding:20px 28px; gap:22px; display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); justify-items:center; align-items:start; }
+.card { text-align:center; width:100%; max-width:320px; }
+.card img { display:block; margin:0 auto; width:100%; height:200px; object-fit:cover; }
+
+@media (max-width:720px) {
+   .topo { flex-direction:column; align-items:center; }
+   .topo nav { justify-content:center; }
+   .novo-anuncio { flex-direction:column; align-items:center; }
+   #btnNovo { margin-left:0; width:100%; }
+}
+
+/* Centraliza blocos individuais para manter conteúdo alinhado (exceto o header) */
+.novo-anuncio, .filtros, .cards { max-width:1100px; margin:0 auto; }
+
+/* Garante que o topo ocupe toda a largura da janela */
+.topo { width:100%; }

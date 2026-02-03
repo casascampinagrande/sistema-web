@@ -1,0 +1,119 @@
+
+/* Estilos específicos para a página Meu Perfil */
+/* Evita centralização vertical aplicada globalmente */
+.page-center { display: block; }
+
+/* Faixa de fundo ampla que envolve o cartão de perfil */
+.profile-hero {
+  /* full-bleed: expande a faixa para toda a viewport */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  padding: 40px 0; /* espaço vertical para a faixa */
+  background: linear-gradient(180deg, rgba(234,242,255,0.95), rgba(246,249,255,1));
+}
+
+/* Container central que limita a largura do conteúdo dentro da faixa */
+.profile-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Cartão com largura limitada e aparência organizada */
+.profile-container .profile-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  overflow: hidden;
+  border: 1px solid rgba(16,24,40,0.04);
+  background: var(--card-bg);
+}
+
+.profile-card { max: width 1900px; width:calc(100% - 40px); padding:22px; margin:20px auto; border-radius:12px; position:relative; }
+.profile-header { display:flex; gap:18px; align-items:center; padding:20px; border-bottom:1px solid rgba(16,24,40,0.04); }
+.avatar img { width:96px; height:96px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(2,6,23,0.08); }
+.profile-info { flex:1; }
+.profile-info h2 { margin:0 0 6px 0; font-size:22px; }
+.profile-info .muted { margin-top:6px; color:var(--muted); }
+.profile-actions { margin-top:12px; display:flex; gap:10px; align-items:center; }
+.profile-actions .btn { padding:8px 12px; min-height:38px; }
+
+/* Botão flutuante de editar (visível em telas médias/maiores) */
+.edit-floating { position:absolute; top:16px; right:16px; display:none; padding:8px 12px; border-radius:8px; }
+
+
+.profile-body { display:grid; grid-template-columns: 240px 1fr; gap:28px; margin-top:12px; align-items:start; }
+.profile-menu { background: transparent; }
+.profile-menu nav ul { list-style:none; margin:0; padding:6px; }
+.profile-menu nav li { margin:10px 0; }
+.profile-menu nav a { display:block; padding:10px 12px; border-radius:8px; color:var(--muted); text-decoration:none; }
+.profile-menu nav li.active a,
+.profile-menu nav a:hover { background: rgba(16, 185, 129, 0.1); color: #065f46; font-weight:600; }
+
+.profile-main { }
+.profile-details { flex:1 1 320px; }
+.profile-details { padding: 8px 0 0 0; }
+.profile-details dl { margin:0; }
+.profile-details dt { font-weight:700; color:#111827; margin-top:12px; }
+.profile-details dd { margin:6px 0 12px 0; color:var(--muted); }
+
+.my-listings {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.my-listings h3 { margin: 0 0 12px 6px; }
+.listings {
+  display:flex;
+  gap:16px;
+  flex-wrap:nowrap; /* força alinhamento horizontal */
+  overflow-x:auto; /* permite rolar horizontalmente quando necessário */
+  padding-bottom:8px;
+  -webkit-overflow-scrolling: touch;
+}
+.listings::-webkit-scrollbar { height:8px; }
+.listings::-webkit-scrollbar-track { background: transparent; }
+.listings::-webkit-scrollbar-thumb { background: rgba(16,24,40,0.06); border-radius:8px; }
+
+.small-card { padding:12px; flex: 0 0 300px; min-width:260px; max-width:320px; border-radius:10px; }
+.small-card img { width:100%; height:160px; object-fit:cover; border-radius:8px; }
+.small-card h4 { margin:8px 0 6px; }
+.listing-actions { margin-top:8px; display:flex; gap:8px; }
+
+/* Formulário de edição */
+#editForm { margin-top:16px; }
+.form label { display:block; margin-bottom:6px; font-weight:600; }
+.form input { width:100%; margin-bottom:10px; }
+
+@media (max-width:820px) {
+  .profile-body { display:block; }
+  .profile-menu { width:100%; margin-bottom:12px; }
+  .profile-container .profile-card { border-radius: 12px; }
+  .listings { flex-wrap:wrap; overflow-x:visible; justify-content:center; }
+  .small-card { flex: 1 1 calc(50% - 16px); min-width: 160px; max-width: none; }
+}
+
+/* Eleva levemente a seção de detalhes em telas maiores para ficar mais próxima do header */
+@media (min-width:821px) {
+  .profile-main { margin-top: -18px; }
+  .profile-details { margin-top: -8px; }
+}
+
+@media (min-width:540px) {
+  .edit-floating { display:block; }
+}
+
+@media (max-width:520px) {
+  .profile-header { flex-direction:column; align-items:flex-start; gap:12px; }
+  .avatar img { width:88px; height:88px; }
+  .profile-menu { order:0; width:100%; }
+  .profile-menu nav a { display:inline-block; margin-right:8px; }
+}
+
+.hidden { display:none !important; }

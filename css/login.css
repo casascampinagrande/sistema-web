@@ -1,0 +1,53 @@
+/* =======================================================
+   css/login.css
+   Estilos específicos da página `login.html`.
+   Importante: regras globais e componentes ficam em `common.css`.
+   ======================================================= */
+
+/* Exemplo de customização para login: largura máxima da caixa */
+.form-box { max-width: 460px; }
+
+/* link de ajuda abaixo de 'Esqueceu a senha' */
+.help-link { display:block; margin-top:8px; color:var(--muted); font-size:13px; text-decoration:underline; }
+.help-link:hover { color: var(--accent-600); }
+
+/* -------------------- Help form styles -------------------- */
+.help-form { display:block; margin-top:14px; }
+.help-form input[type="text"], .help-form input[type="email"], .help-form textarea, .help-form input[type="tel"] {
+   width:100%; padding:10px 12px; margin-bottom:10px; border-radius:8px; border:1px solid #e6e9ee; font-size:14px; background:#fff; color:#374151;
+}
+.help-form textarea { resize:vertical; }
+.help-actions { display:flex; gap:10px; align-items:center; }
+.help-submit { background: var(--accent); color:#fff; border-radius:8px; padding:8px 14px; border:none; cursor:pointer; }
+.help-success { background: #ecfdf5; border: 1px solid #bbf7d0; padding:10px; border-radius:8px; color:#065f46; }
+
+/* Aqui você pode adicionar ajustes visuais exclusivos do login,
+   por exemplo cores, espaçamentos ou pequenas variantes de botão. */
+
+/* -------------------- Esqueceu senha (recuperação) -------------------- */
+/* centraliza a área principal em telas maiores e adiciona padding */
+.page-center { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:28px; }
+
+/* cartão adaptado para formulários de recuperação */
+.card { padding: 26px; max-width: 520px; width: 100%; box-sizing: border-box; }
+.card-title { margin: 0 0 8px; font-size: 20px; }
+.muted { color: var(--muted); margin-bottom: 12px; }
+
+/* Formulário básico dentro do card */
+.form label { display:block; margin-bottom:8px; font-weight:600; color:#0f172a; }
+.form input[type="email"] { width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; font-size:14px; color:#374151; background:#fff; }
+.form .btn { width:100%; margin-top:10px; }
+.form .btn + .btn-secondary { margin-top:8px; width:100%; }
+
+/* área de sucesso após envio */
+#forgotSuccess { padding:12px 0 6px 0; }
+#forgotSuccess p { margin:0 0 12px 0; color:#064e3b; background: #ecfdf5; padding:10px; border-radius:8px; border:1px solid #bbf7d0; }
+.btn-link { display:inline-block; margin-top:8px; background:transparent; color:var(--accent-600); border:0; padding:6px 10px; text-decoration:underline; }
+
+/* utilitário: esconde elementos via classe JS */
+.hidden { display:none !important; }
+
+@media (max-width:420px) {
+   .card { padding:18px; }
+   .page-center { padding:18px; }
+}

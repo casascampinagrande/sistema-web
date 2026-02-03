@@ -1,0 +1,184 @@
+
+/* =======================================================
+   css/common.css
+   Estilos compartilhados entre páginas (variáveis, reset,
+   componentes comuns, formulários e utilitários)
+   ======================================================= */
+
+/* -------------------- Variáveis -------------------- */
+:root {
+  --bg1: #f6f9ff;
+  --bg2: #eaf2ff;
+  --accent: #2d8f6f; /* cor principal */
+  --accent-600: #26795a; /* hover/ativo */
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --radius: 12px;
+  --verde: var(--accent);
+  --verde-claro: rgba(45,143,111,0.12);
+}
+/* ======================================================= */
+/* css/common.css - Comentários explicativos por bloco       */
+/* ======================================================= */
+
+/* -------------------- Variáveis (CSS Custom Properties) -------------------- */
+:root {
+  /* cor de topo do gradiente de fundo */
+  --bg1: #f6f9ff;
+  /* cor base do gradiente */
+  --bg2: #eaf2ff;
+  /* cor principal usada em botões/links */
+  --accent: #2d8f6f;
+  /* variação do accent para hover/ativo */
+  --accent-600: #26795a;
+  /* cor de texto secundária */
+  --muted: #6b7280;
+  /* fundo branco para cards */
+  --card-bg: #ffffff;
+  /* raio padrão para cantos arredondados */
+  --radius: 12px;
+  /* alias usados em alguns componentes */
+  --verde: var(--accent);
+  --verde-claro: rgba(45,143,111,0.12);
+}
+
+
+/* -------------------- Reset / Base -------------------- */
+/* aplica box-sizing border-box em todos os elementos */
+* { box-sizing: border-box; }
+
+/* corpo da página: define fonte, background e centralização */
+body {
+  margin: 0; /* remove margem padrão do browser */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; /* pilha de fontes */
+  background: linear-gradient(180deg, var(--bg1), var(--bg2)); /* gradiente de fundo */
+  color: #111827; /* cor padrão do texto */
+  min-height: 100vh; /* garante altura mínima da viewport */
+  display: flex; /* usa flex para centralizar */
+  align-items: center; /* alinha verticalmente ao centro */
+  justify-content: center; /* alinha horizontalmente ao centro */
+}
+
+
+/* -------------------- Layout / Grid -------------------- */
+/* contêiner de filtros - ex.: selects de busca */
+.filtros { display: flex; gap: 20px; padding: 30px 40px; }
+.filtros select { padding: 10px; width: 200px; }
+
+/* grid de cards para listagens */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; padding: 40px; }
+
+
+/* -------------------- Componente: Card -------------------- */
+.card {
+  border: 1px solid #ddd; /* borda neutra */
+  border-radius: 10px; /* cantos arredondados */
+  overflow: hidden; /* previne overflow de imagens */
+  background: var(--card-bg); /* fundo branco */
+  transition: transform .22s ease; /* transição de hover */
+}
+.card:hover { transform: scale(1.02); } /* zoom leve ao passar o mouse */
+.card img { width: 100%; height: 200px; object-fit: cover; } /* imagem ocupa área fixa */
+.card h3 { padding: 10px; } /* padding do título */
+.card p { padding: 0 10px; color: #666; } /* texto secundário */
+.card span { display: inline-block; margin: 10px; background: var(--verde-claro); padding: 5px 10px; border-radius: 5px; } /* badge */
+.card strong { display: block; padding: 10px; color: var(--verde); font-size: 18px; } /* destaque */
+
+
+/* -------------------- Formulários (login / register) -------------------- */
+/* wrapper que limita largura e adiciona padding */
+.form-wrapper { width: 100%; max-width: 500px; padding: 32px; }
+
+/* caixa do formulário com sombra e borda suave */
+.form-box {
+  background: rgba(255,255,255,0.95); /* leve transparência para suavizar */
+  border-radius: var(--radius); /* cantos arredondados */
+  box-shadow: 0 10px 30px rgba(16,24,40,0.08); /* sombra leve */
+  padding: 28px; /* espaçamento interno */
+  border: 1px solid rgba(16,24,40,0.04); /* borda muito clara */
+}
+.form-box h2 { margin: 0 0 18px 0; font-size: 22px; text-align: center; } /* título */
+
+/* inputs: largura total, padding, borda e cor de texto */
+.form input[type="email"], .form input[type="password"], .form input[type="text"], .form input[type="date"] {
+  width: 100%; /* ocupa todo o espaço disponível */
+  padding: 12px 14px; /* espaçamento interno */
+  margin-bottom: 12px; /* separação entre campos */
+  border-radius: 8px; /* cantos arredondados */
+  border: 1px solid #e6e9ee; /* borda clara */
+  background: #fff; /* fundo branco */
+  font-size: 15px; /* tamanho do texto */
+  color: #374151; /* cor do texto dos inputs */
+}
+
+/* placeholder com cor mais clara para indicar campo vazio */
+.form input::placeholder { color: #9ca3af; }
+
+/* garantia: date usa mesma cor de texto */
+.form input[type="date"] { color: #9ca3af; }
+
+
+/* Esconde ícone do calendário e faz date parecer texto */
+.form input[type="date"] { -webkit-appearance: textfield; appearance: textfield; -moz-appearance: textfield; background-image: none; }
+.form input[type="date"]::-webkit-calendar-picker-indicator, .form input[type="date"]::-webkit-clear-button, .form input[type="date"]::-webkit-inner-spin-button { display: none; -webkit-appearance: none; }
+input[type="date"]::-moz-focus-inner { border: 0; }
+
+/* foco visual nos inputs */
+.form input:focus { outline: none; border-color: var(--accent-600); box-shadow: 0 0 0 4px rgba(38,121,90,0.06); }
+.form-row { margin-bottom: 10px; } /* pequena margem entre linhas */
+
+
+/* -------------------- Botões / Ações -------------------- */
+.actions { display:flex; gap:10px; align-items:center; justify-content:center; margin-top:6px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding: 10px 18px; background: var(--accent); color: #fff; border-radius: 8px; border: none; text-decoration: none; font-weight: 600; cursor: pointer; text-align: center; min-height:44px; box-sizing:border-box; }
+.btn:hover { background: var(--accent-600); }
+.btn:focus { outline: none; }
+
+/* padroniza botões-link e secundários para mesma altura e alinhamento */
+.btn-link { display:inline-flex; align-items:center; justify-content:center; padding:6px 10px; min-height:44px; box-sizing:border-box; }
+
+/* Garantir contraste ao passar o mouse em variações de botão */
+.btn-secondary:hover { background: var(--accent-600); color: #fff; border-color: var(--accent-600); }
+/* Quando um link usa também a classe .btn (ex: .btn.btn-link),
+   garantir que o texto continue legível no hover */
+.btn.btn-link:hover { color: #fff; background: var(--accent-600); text-decoration: none; }
+.btn-secondary { background: transparent; color: var(--accent-600); border: 1px solid rgba(38,121,90,0.12); text-align: center; min-height:44px; box-sizing:border-box; }
+.small-link { display:block; text-align:center; margin-top:14px; color:var(--muted); font-size:13px; text-decoration:none; }
+.small-link:hover { color: #374151; }
+
+
+/* -------------------- Utilities -------------------- */
+/* classe para esconder visualmente elementos mantendo acessibilidade */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.fieldset { border:0; padding:0; margin:0 0 8px 0; }
+
+
+/* -------------------- Radio group (tipo de conta) -------------------- */
+.radio-group { display:flex; gap:12px; justify-content:flex-start; margin-bottom:12px; } /* container */
+.radio-group label { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid transparent; cursor:pointer; font-weight:600; color: #0f172a; background: transparent; } /* label clicável */
+.radio-group input[type="radio"] {
+  appearance: none; /* remove aparência nativa */
+  width:18px; /* largura do círculo */
+  height:18px; /* altura do círculo */
+  border-radius:50%; /* torna circular */
+  border:2px solid #cbd5e1; /* borda externa */
+  display:inline-block; /* inline-block para posicionamento */
+  position:relative; /* para o ::after interno */
+  background: #fff; /* fundo branco */
+}
+
+/* pequeno ponto interno (visível quando marcado) */
+.radio-group input[type="radio"]::after {
+  content: ""; /* elemento vazio que vira o ponto */
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); /* centra */
+  width: 8px; height: 8px; border-radius: 50%; /* círculo */
+  background: transparent; /* invisível por padrão */
+  transition: background .12s ease; /* transição suave */
+}
+.radio-group input[type="radio"]:checked { border-color: var(--accent-600); box-shadow: 0 0 0 4px rgba(38,121,90,0.06) inset; } /* estilo quando marcado */
+.radio-group input[type="radio"]:checked::after { background: #000; } /* ponto preto quando marcado */
+.radio-group input[type="radio"]:checked + span { color: var(--accent-600); } /* muda texto ao lado quando marcado */
+
+
+/* -------------------- Media queries -------------------- */
+@media (max-width:420px) { .form-wrapper { padding: 18px; } .form-box { padding: 20px; } }

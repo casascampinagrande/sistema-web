@@ -1,0 +1,52 @@
+/* =======================================================
+	 css/register.css
+	 Estilos específicos da página `register.html`.
+	 Use `common.css` para regras compartilhadas. Aqui ficam
+	 ajustes e estilos locais como legendas, máscaras e notas.
+	 ======================================================= */
+
+/* Nota / helper */
+.register-note { font-size: 13px; color: #6b7280; text-align:center; margin-top:8px; }
+
+/* -------------------- Legenda do grupo de conta -------------------- */
+.fieldset-legend {
+	display: block;
+	text-align: left;
+	font-weight: 400; /* sem negrito */
+	margin-bottom: 10px;
+	color: #0f172a;
+	margin-left: 4px;
+}
+
+/* -------------------- Linhas do formulário -------------------- */
+.form-row { margin-bottom: 10px; }
+.date-row input[type="date"] { padding: 10px 12px; }
+
+/* -------------------- CPF / CNPJ -------------------- */
+.cpf-row input, .cnpj-row input { padding: 12px 14px; border-radius:8px; border:1px solid #e6e9ee; width:100%; }
+
+/* Espaço para mensagens específicas do cadastro (ex.: 'data obrigatória para PF') */
+.helper-text { font-size:12px; color:var(--muted); margin-top:6px; }
+
+/* -------------------- Consentimento / links -------------------- */
+.consent { margin-top:12px; text-align:left; }
+.consent-text { font-size:13px; color:#6b7280; margin:6px 0; }
+.consent-text a { color: var(--accent-600); text-decoration: underline; }
+.consent-opt { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:#374151; }
+
+/* Padroniza tamanho e alinhamento dos checkboxes dentro do bloco de consentimento */
+.consent input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	accent-color: var(--accent); /* cor do check (se suportado pelo navegador) */
+}
+
+.consent-opt input { /* garante consistência caso exista regra específica */
+	width: 18px;
+	height: 18px;
+}
+
+/* estilo para checkbox obrigatório / mensagem de erro */
+.consent-agree { display:block; margin-top:6px; font-size:13px; color:#374151; }
+.field-error { color:#b91c1c; font-size:13px; margin-top:6px; }
