@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Meu Perfil</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/profile.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/perfil-full.css">
 </head>
-<body>
-  <header class="topo">
+<body class="hero-page">
+
+<header class="topo">
 	<div class="top-inner">
 		<div class="logo">
 			<a href="index.html"><h1>Valorize</h1></a>
@@ -21,152 +20,127 @@
 			<a href="suporte.html">Suporte</a>
 		</nav>
 
-    <div class="actions" id="headerActions">
-      <a href="login.html" class="btn btn-secondary">Entrar</a>
-      <a href="#" class="btn cta">Anunciar grátis</a>
-    </div>
+		<div class="actions">
+			<a href="login.html" class="btn btn-secondary">Entrar</a>
+      <a href="anunciar.html" class="btn cta">Anunciar grátis</a>
+		</div>
 	</div>
 </header>
 
-  <main class="page-center">
-    <div class="profile-hero">
-      <div class="profile-container">
-        <div class="card profile-card">
-      
-      <div class="profile-header">
-        <div class="avatar">
-          <img src="https://via.placeholder.com/96" alt="Avatar">
-        </div>
-        <div class="profile-info">
-          <h2 id="userName">Maria Silva</h2>
-          <p id="userEmail" class="muted">maria@example.com</p>
-
-          <div class="profile-actions">
-            <button id="editBtn" class="btn btn-secondary">Editar perfil</button>
-            <a href="esqueceu_senha.html" class="btn">Alterar senha</a>
+<main class="profile-page">
+  <div class="profile-container">
+    
+    <!-- COLUNA ESQUERDA: INFORMAÇÕES DO PERFIL -->
+    <aside class="profile-sidebar">
+      <div class="profile-card">
+        <div class="profile-avatar-section">
+          <img src="" alt="Avatar" class="profile-avatar">
+          <div class="profile-name-section">
+            <h2 class="profile-user-name">
+              <!-- Nome preenchido dinamicamente -->
+            </h2>
+            <p class="profile-status">
+              <!-- Status preenchido dinamicamente -->
+            </p>
           </div>
+        </div>
+
+        <div class="profile-info-item profile-member-since">
+          <svg width="16" height="16" fill="#6b7280"><rect width="16" height="16" rx="2"/></svg>
+          <span><!-- Preenchido dinamicamente --></span>
+        </div>
+
+        <div class="profile-info-item profile-location">
+          <svg width="16" height="16" fill="#6b7280"><circle cx="8" cy="6" r="2"/><path d="M12 14c0-2.21-1.79-4-4-4s-4 1.79-4 4"/></svg>
+          <span><!-- Preenchido dinamicamente --></span>
+        </div>
+
+        <div class="profile-level">
+          <h3>Nível de cadastro</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+
+          <div class="verification-items">
+            <div class="verification-item" data-verification="email">
+              <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <span>Endereço de e-mail</span>
+            </div>
+            <div class="verification-item" data-verification="phone">
+              <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <span>Número de telefone</span>
+            </div>
+            <div class="verification-item" data-verification="facebook">
+              <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <span>Facebook</span>
+            </div>
+            <div class="verification-item" data-verification="identity">
+              <svg width="16" height="16" viewBox="0 0 16 16"><path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <span>Identidade verificada</span>
+            </div>
+          </div>
+
+          <a href="#" class="verification-help">O que é Identidade verificada?</a>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- COLUNA DIREITA: ANÚNCIOS -->
+    <section class="profile-main">
+      <div class="profile-tabs">
+        <button class="tab-btn active">Histórico</button>
+      </div>
+
+      <div class="stats-box">
+        <svg width="24" height="24" fill="#6b7280" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" fill="none"/></svg>
+        <div>
+          <strong class="ads-count-total"><!-- Preenchido dinamicamente --></strong>
+          <p>Publicados nos últimos 180 dias</p>
         </div>
       </div>
 
-      <div class="profile-body">
-
-        <div class="profile-main">
-          <section id="details" class="profile-details">
-            <h3>Detalhes da conta</h3>
-            <dl>
-              <dt>Nome</dt><dd id="detailName">Maria Silva</dd>
-              <dt>Como prefere ser chamado</dt><dd id="detailNick">Mari</dd>
-              <dt>Telefone</dt><dd id="detailPhone">(83) 99999-9999</dd>
-            </dl>
-          </section>
-
-          <!-- listings moved below -->
+      <div class="listings-section">
+        <div class="listings-header">
+          <h2>Anúncios</h2>
+          <p class="listings-count"><!-- Preenchido dinamicamente --></p>
         </div>
-      </div>
 
-      <section id="listings" class="my-listings">
-        <h3>Meus anúncios</h3>
-        <div class="listings">
-          <div class="card small-card">
-            <img src="https://via.placeholder.com/300x160" alt="Anúncio">
-            <h4>Casa no Centro</h4>
-            <p class="muted">Campina Grande - PB</p>
-            <div class="listing-actions"><a class="btn btn-secondary">Editar</a> <a class="btn">Ver</a></div>
+        <div class="listings-filters">
+          <div class="search-box">
+            <svg width="20" height="20" fill="#6b7280" viewBox="0 0 20 20"><circle cx="8" cy="8" r="6" stroke="currentColor" fill="none"/><path d="M12 12l4 4" stroke="currentColor"/></svg>
+            <input type="search" placeholder="Ex: Apartamento 2 quartos" class="search-input">
           </div>
 
-          <div class="card small-card">
-            <img src="https://via.placeholder.com/300x160" alt="Anúncio">
-            <h4>Apartamento mobiliado</h4>
-            <p class="muted">João Pessoa - PB</p>
-            <div class="listing-actions"><a class="btn btn-secondary">Editar</a> <a class="btn">Ver</a></div>
+          <div class="filter-row">
+            <select class="filter-select">
+              <option>Categoria</option>
+              <option>Venda</option>
+              <option>Aluguel</option>
+            </select>
+            <select class="filter-select">
+              <option>Localização</option>
+              <option>João Pessoa</option>
+              <option>Campina Grande</option>
+            </select>
+            <select class="filter-select">
+              <option>Mais recentes</option>
+              <option>Mais antigos</option>
+              <option>Maior preço</option>
+            </select>
           </div>
         </div>
-      </section>
 
-      <div id="editForm" class="hidden">
-        <form id="profileForm" class="form">
-          <label for="name">Nome completo</label>
-          <input id="name" name="name" type="text" value="Maria Silva" required>
-
-          <label for="nick">Como prefere ser chamado</label>
-          <input id="nick" name="nick" type="text" value="Mari">
-
-          <label for="phone">Telefone</label>
-          <input id="phone" name="phone" type="tel" value="(83) 99999-9999">
-
-          <div class="actions">
-            <button type="submit" class="btn">Salvar</button>
-            <button type="button" id="cancelEdit" class="btn btn-secondary">Cancelar</button>
-          </div>
-        </form>
-      </div>
-
+        <div class="ads-grid">
+          <!-- Anúncios carregados dinamicamente do backend -->
         </div>
       </div>
-    </div>
-  </main>
+    </section>
 
-  <script>
-    (function(){
-      const editBtn = document.getElementById('editBtn');
-      const editFormWrap = document.getElementById('editForm');
-      const profileForm = document.getElementById('profileForm');
-      const cancelEdit = document.getElementById('cancelEdit');
-      const menuLinks = document.querySelectorAll('.profile-menu nav a');
-      const menuEdit = document.getElementById('menuEdit');
-      const editBtnFloat = document.getElementById('editBtnFloat');
+  </div>
+</main>
 
-      editBtn.addEventListener('click', function(){
-        editFormWrap.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+<script src="js/profile.js"></script>
 
-      menuLinks.forEach(function(a){
-        a.addEventListener('click', function(e){
-          // Marca item ativo e navega para seção
-          menuLinks.forEach(x=> x.parentElement.classList.remove('active'));
-          this.parentElement.classList.add('active');
-          // Se href iniciar com #, faz scroll suave
-          const href = this.getAttribute('href');
-          if(href && href.startsWith('#')){
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      if(menuEdit){
-        menuEdit.addEventListener('click', function(e){
-          // abre o formulário de edição
-          e.preventDefault();
-          editFormWrap.classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      if(editBtnFloat){
-        editBtnFloat.addEventListener('click', function(){
-          editFormWrap.classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-
-      cancelEdit.addEventListener('click', function(){
-        editFormWrap.classList.add('hidden');
-      });
-
-      profileForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        // Simulação: atualiza detalhes visuais
-        document.getElementById('userName').textContent = profileForm.name.value;
-        document.getElementById('detailName').textContent = profileForm.name.value;
-        document.getElementById('detailNick').textContent = profileForm.nick.value;
-        document.getElementById('detailPhone').textContent = profileForm.phone.value;
-        editFormWrap.classList.add('hidden');
-      });
-    })();
-  </script>
-  <script src="js/profile.js"></script>
 </body>
 </html>

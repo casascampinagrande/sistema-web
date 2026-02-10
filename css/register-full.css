@@ -1,0 +1,572 @@
+* {
+  box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+}
+
+/* Configurações do body da página */
+body {
+  margin: 0; /* Remove margem padrão do navegador */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fonte do sistema */
+  background: linear-gradient(180deg, #fff, #b5edca); /* Gradiente verde suave de fundo */
+  color: #111827; /* Cor do texto principal */
+  display: block; /* Layout em bloco (não flexbox centralizado) */
+  min-height: auto; /* Altura mínima automática */
+  overflow-x: hidden; /* Esconde scroll horizontal */
+}
+/* ===== HEADER / TOPO ===== */
+
+/* Container principal do header */
+.topo {
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: space-between; /* Distribui espaço entre os itens */
+  gap: 16px; /* Espaço entre os elementos filhos */
+  width: 100%; /* Largura total */
+  padding: 12px 20px; /* Espaçamento interno (vertical horizontal) */
+  box-sizing: border-box; /* Inclui padding no cálculo da largura */
+}
+
+/* Container interno do topo com os elementos principais */
+.top-inner {
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente ao centro */
+  gap: 18px; /* Espaço entre elementos */
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Título h1 dentro do topo */
+.topo h1 {
+  margin: 0; /* Remove margem padrão */
+  font-size: 20px; /* Tamanho da fonte */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha conteúdo ao centro */
+  gap: 8px; /* Espaço entre elementos internos */
+  color: #000; /* Cor preta */
+}
+
+/* Área do logo */
+.logo {
+  flex: 0 0 auto; /* Não cresce nem encolhe, tamanho automático */
+  margin-right: auto; /* Empurra outros elementos para a direita */
+}
+
+/* Título dentro do logo */
+.logo h1 {
+  margin: 0; /* Remove margem */
+  font-size: 20px; /* Tamanho da fonte */
+  color: #000; /* Cor preta */
+}
+
+/* Link do logo */
+.logo a {
+  text-decoration: none; /* Remove sublinhado */
+  color: #000; /* Cor preta */
+}
+
+/* Link do logo ao passar o mouse */
+.logo a:hover {
+  text-decoration: none; /* Mantém sem sublinhado */
+  color: #000; /* Mantém cor preta */
+}
+
+/* Menu de navegação */
+.menu {
+  display: flex; /* Layout flexível */
+  gap: 12px; /* Espaço entre os links */
+  align-items: center; /* Alinha verticalmente ao centro */
+  flex: 0 0 auto; /* Não cresce nem encolhe */
+}
+
+/* Links do menu */
+.menu a {
+  color: #0f172a; /* Cor do texto escura */
+  text-decoration: none; /* Remove sublinhado */
+  padding: 8px 12px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  font-weight: 600; /* Texto em negrito */
+}
+
+/* Links do menu ao passar o mouse */
+.menu a:hover {
+  background: rgba(45, 143, 111, 0.08); /* Fundo verde claro */
+  color: #26795a; /* Cor verde escura */
+}
+
+/* Container de ações (botões de entrar e anunciar) */
+.actions {
+  display: flex; /* Layout flexível */
+  gap: 12px; /* Espaço entre botões */
+  align-items: center; /* Alinha verticalmente ao centro */
+}
+
+/* Botão secundário dentro de actions */
+.actions .btn-secondary {
+  padding: 8px 14px; /* Espaçamento interno */
+}
+
+/* Estilo base para botões */
+.btn {
+  display: inline-flex; /* Layout inline flexível */
+  align-items: center; /* Alinha conteúdo ao centro verticalmente */
+  justify-content: center; /* Alinha conteúdo ao centro horizontalmente */
+  gap: 8px; /* Espaço entre elementos internos */
+  padding: 10px 18px; /* Espaçamento interno */
+  background: #2d8f6f; /* Cor de fundo verde */
+  color: #fff; /* Texto branco */
+  border-radius: 8px; /* Cantos arredondados */
+  border: none; /* Remove borda padrão */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: 600; /* Texto em negrito */
+  cursor: pointer; /* Cursor de ponteiro */
+  text-align: center; /* Texto centralizado */
+  min-height: 44px; /* Altura mínima para acessibilidade */
+  box-sizing: border-box; /* Inclui padding no cálculo */
+}
+
+/* Botão ao passar o mouse */
+.btn:hover {
+  background: #26795a; /* Verde mais escuro */
+}
+
+/* Botão CTA (Call to Action) - Anunciar */
+.btn.cta {
+  background: linear-gradient(90deg, #ff8a00, #ff6000) !important; /* Gradiente laranja */
+  color: #fff !important; /* Texto branco */
+  border-radius: 28px; /* Cantos bem arredondados */
+  padding: 10px 18px; /* Espaçamento interno */
+  border: none !important; /* Remove borda */
+}
+
+/* Botão CTA ao passar o mouse */
+.btn.cta:hover {
+  filter: brightness(0.95); /* Escurece levemente */
+  background: linear-gradient(90deg, #ff8a00, #ff6000) !important; /* Mantém laranja */
+}
+
+/* Botão secundário */
+.btn-secondary {
+  background: transparent; /* Fundo transparente */
+  color: #0f172a; /* Texto escuro */
+  border: 1px solid #e6e9ee; /* Borda cinza clara */
+  text-align: center; /* Texto centralizado */
+  min-height: 44px; /* Altura mínima */
+  box-sizing: border-box; /* Inclui padding e border */
+  padding: 8px 14px; /* Espaçamento interno */
+  display: inline-flex; /* Layout inline flex */
+  align-items: center; /* Alinha conteúdo verticalmente */
+  justify-content: center; /* Alinha conteúdo horizontalmente */
+  border-radius: 8px; /* Cantos arredondados */
+  font-weight: 600; /* Texto em negrito */
+  text-decoration: none; /* Remove sublinhado */
+  cursor: pointer; /* Cursor de ponteiro */
+}
+
+/* Botão secundário ao passar o mouse */
+.btn-secondary:hover {
+  background: #26795a; /* Verde escuro */
+  color: #fff; /* Texto branco */
+  border-color: #26795a; /* Borda verde escura */
+}
+
+
+/* ===== ESTILOS ESPECÍFICOS PARA HERO PAGE ===== */
+
+/* Topo transparente quando está sobre o hero */
+.hero-page .topo {
+  position: absolute; /* Posição absoluta sobre o hero */
+  top: 22px; /* Distância do topo */
+  left: 0; /* Alinha à esquerda */
+  right: 0; /* Alinha à direita */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 14px 36px; /* Espaçamento interno */
+  background: transparent; /* Fundo transparente */
+  border-bottom: 0; /* Remove borda inferior */
+  z-index: 60; /* Fica acima de outros elementos */
+}
+
+/* Logo e links do menu brancos no hero */
+.hero-page .topo .logo a,
+.hero-page .topo .menu a {
+  color: rgba(255, 255, 255, 0.95); /* Branco quase opaco */
+}
+
+/* Links do menu verdes no hero */
+.hero-page .topo .menu a {
+  color: rgba(92, 151, 55, 0.9); /* Verde claro */
+}
+
+/* Botões transparentes no hero */
+.hero-page .topo .actions .btn {
+  background: transparent; /* Fundo transparente */
+  color: rgba(92, 151, 55, 0.9); /* Texto verde claro */
+}
+
+/* Botão CTA no hero com fundo branco translúcido */
+.hero-page .topo .actions .btn.cta {
+  background: rgba(255, 255, 255, 0.12); /* Branco translúcido */
+  border-radius: 20px; /* Cantos arredondados */
+  padding: 8px 14px; /* Espaçamento interno */
+}
+
+/* Estilos do topo para páginas sem hero */
+body:not(.hero-page) .topo {
+  position: static; /* Posição normal no fluxo */
+  background: rgba(255, 255, 255, 0.6); /* Fundo branco translúcido */
+  border-bottom: 1px solid rgba(16, 24, 40, 0.04); /* Borda inferior suave */
+  backdrop-filter: blur(4px); /* Efeito de blur no fundo */
+}
+
+/* Logo preto em páginas sem hero */
+body:not(.hero-page) .topo .logo a {
+  color: #000; /* Preto */
+}
+
+/* Links do menu escuros em páginas sem hero */
+body:not(.hero-page) .topo .menu a {
+  color: #0f172a; /* Texto escuro */
+}
+
+/* Botão secundário em páginas sem hero */
+body:not(.hero-page) .topo .actions .btn-secondary {
+  background: transparent; /* Fundo transparente */
+  border: 1px solid #e6e9ee; /* Borda cinza */
+  color: #0f172a; /* Texto escuro */
+}
+
+/* Botão CTA laranja em páginas sem hero */
+body:not(.hero-page) .topo .actions .btn.cta {
+  background: linear-gradient(90deg, #ff8a00, #ff6000); /* Gradiente laranja */
+  color: #fff; /* Texto branco */
+}
+
+
+/* ===== FORMULÁRIO DE REGISTRO ===== */
+
+/* Wrapper que contém o formulário */
+.form-wrapper {
+  width: 100%; /* Largura total */
+  max-width: 500px; /* Largura máxima */
+  padding: 32px; /* Espaçamento interno */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-top: 80px;
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  min-height: calc(100vh - 80px); /* Altura mínima (100vh menos header) */
+}
+
+/* Caixa do formulário */
+.form-box {
+  background: rgba(255, 255, 255, 0.95); /* Fundo branco quase opaco */
+  border-radius: 12px; /* Cantos arredondados */
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08); /* Sombra suave */
+  padding: 28px; /* Espaçamento interno */
+  border: 1px solid rgba(16, 24, 40, 0.04); /* Borda clara */
+}
+
+/* Título do formulário */
+.form-box h2 {
+  margin: 0 0 18px 0; /* Margem inferior */
+  font-size: 22px; /* Tamanho da fonte */
+  text-align: center; /* Texto centralizado */
+  color: #111827; /* Cor escura */
+}
+
+/* Container do formulário */
+.form {
+  display: block; /* Layout em bloco */
+}
+
+/* ===== FIELDSET E LEGENDA ===== */
+
+/* Fieldset sem borda padrão */
+.fieldset {
+  border: 0; /* Remove borda */
+  padding: 0; /* Remove padding */
+  margin: 0 0 8px 0; /* Margem inferior */
+}
+
+/* Legenda do fieldset (tipo de conta) */
+.fieldset-legend {
+  display: block; /* Layout em bloco */
+  text-align: left; /* Alinha à esquerda */
+  font-weight: 400; /* Peso normal (não negrito) */
+  margin-bottom: 10px; /* Espaço inferior */
+  color: #0f172a; /* Cor escura */
+  margin-left: 4px; /* Pequeno espaço à esquerda */
+}
+
+/* ===== RADIO GROUP (TIPO DE CONTA) ===== */
+
+/* Container dos radio buttons */
+.radio-group {
+  display: flex; /* Layout flexível */
+  gap: 12px; /* Espaço entre opções */
+  justify-content: flex-start; /* Alinha à esquerda */
+  margin-bottom: 12px; /* Espaço inferior */
+}
+
+/* Label clicável do radio */
+.radio-group label {
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha verticalmente */
+  gap: 8px; /* Espaço entre radio e texto */
+  padding: 8px 12px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  border: 1px solid transparent; /* Borda transparente (para não "pular" ao selecionar) */
+  cursor: pointer; /* Cursor de ponteiro */
+  font-weight: 600; /* Texto em negrito */
+  color: #0f172a; /* Cor escura */
+  background: transparent; /* Fundo transparente */
+}
+
+/* Input radio customizado */
+.radio-group input[type="radio"] {
+  appearance: none; /* Remove aparência nativa */
+  width: 18px; /* Largura */
+  height: 18px; /* Altura */
+  border-radius: 50%; /* Torna circular */
+  border: 2px solid #cbd5e1; /* Borda cinza */
+  display: inline-block; /* Layout inline-block */
+  position: relative; /* Para o ponto interno */
+  background: #fff; /* Fundo branco */
+}
+
+/* Ponto interno do radio (aparece quando selecionado) */
+.radio-group input[type="radio"]::after {
+  content: ""; /* Conteúdo vazio */
+  position: absolute; /* Posição absoluta */
+  left: 50%; /* Centraliza horizontalmente */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translate(-50%, -50%); /* Ajusta centralização */
+  width: 8px; /* Largura do ponto */
+  height: 8px; /* Altura do ponto */
+  border-radius: 50%; /* Torna circular */
+  background: transparent; /* Invisível por padrão */
+  transition: background 0.12s ease; /* Transição suave */
+}
+
+/* Radio quando marcado */
+.radio-group input[type="radio"]:checked {
+  border-color: #26795a; /* Borda verde */
+  box-shadow: 0 0 0 4px rgba(38, 121, 90, 0.06) inset; /* Sombra interna */
+}
+
+/* Ponto interno visível quando marcado */
+.radio-group input[type="radio"]:checked::after {
+  background: #000; /* Ponto preto */
+}
+
+/* Texto ao lado do radio muda de cor quando marcado */
+.radio-group input[type="radio"]:checked + span {
+  color: #26795a; /* Texto verde */
+}
+
+/* ===== INPUTS DO FORMULÁRIO ===== */
+
+/* Inputs de texto, email, password, date */
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="text"],
+.form input[type="date"] {
+  width: 100%; /* Largura total */
+  padding: 12px 14px; /* Espaçamento interno */
+  margin-bottom: 12px; /* Espaço inferior */
+  border-radius: 8px; /* Cantos arredondados */
+  border: 1px solid #e6e9ee; /* Borda cinza clara */
+  background: #fff; /* Fundo branco */
+  font-size: 15px; /* Tamanho da fonte */
+  color: #374151; /* Cor do texto */
+  box-sizing: border-box; /* Inclui padding e border */
+}
+
+/* Placeholder dos inputs */
+.form input::placeholder {
+  color: #9ca3af; /* Cor cinza claro */
+}
+
+/* Input date com cor de placeholder */
+.form input[type="date"] {
+  color: #9ca3af; /* Cor cinza quando vazio */
+}
+
+/* Remove ícone de calendário do input date */
+.form input[type="date"] {
+  -webkit-appearance: textfield; /* Remove aparência nativa */
+  appearance: textfield; /* Remove aparência nativa */
+  -moz-appearance: textfield; /* Remove aparência Firefox */
+  background-image: none; /* Remove imagem de fundo */
+}
+
+/* Remove indicadores do calendário */
+.form input[type="date"]::-webkit-calendar-picker-indicator,
+.form input[type="date"]::-webkit-clear-button,
+.form input[type="date"]::-webkit-inner-spin-button {
+  display: none; /* Esconde elementos */
+  -webkit-appearance: none; /* Remove aparência */
+}
+
+/* Remove borda interna no Firefox */
+input[type="date"]::-moz-focus-inner {
+  border: 0; /* Remove borda */
+}
+
+/* Input em foco */
+.form input:focus {
+  outline: none; /* Remove contorno padrão */
+  border-color: #26795a; /* Borda verde */
+  box-shadow: 0 0 0 4px rgba(38, 121, 90, 0.06); /* Sombra de foco */
+}
+
+/* Linha do formulário */
+.form-row {
+  margin-bottom: 10px; /* Espaço inferior */
+}
+
+/* Linha específica para data */
+.date-row input[type="date"] {
+  padding: 10px 12px; /* Ajuste no padding */
+}
+
+/* ===== INPUTS CPF/CNPJ ===== */
+
+/* Inputs de CPF e CNPJ */
+.cpf-row input,
+.cnpj-row input {
+  padding: 12px 14px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  border: 1px solid #e6e9ee; /* Borda cinza */
+  width: 100%; /* Largura total */
+  box-sizing: border-box; /* Inclui padding e border */
+}
+
+/* Texto de ajuda abaixo de campos */
+.helper-text {
+  font-size: 12px; /* Fonte pequena */
+  color: #6b7280; /* Cor cinza */
+  margin-top: 6px; /* Espaço superior */
+}
+
+/* ===== CONSENTIMENTO E TERMOS ===== */
+
+/* Container de consentimento */
+.consent {
+  margin-top: 12px; /* Espaço superior */
+  text-align: left; /* Alinha à esquerda */
+}
+
+/* Texto de consentimento */
+.consent-text {
+  font-size: 13px; /* Fonte pequena */
+  color: #6b7280; /* Cor cinza */
+  margin: 6px 0; /* Margem vertical */
+}
+
+/* Links dentro do texto de consentimento */
+.consent-text a {
+  color: #26795a; /* Cor verde */
+  text-decoration: underline; /* Sublinhado */
+}
+
+/* Links ao passar o mouse */
+.consent-text a:hover {
+  color: #2d8f6f; /* Verde mais claro */
+}
+
+/* Opção de consentimento (checkbox) */
+.consent-opt {
+  display: inline-flex; /* Layout inline flex */
+  align-items: center; /* Alinha verticalmente */
+  gap: 8px; /* Espaço entre checkbox e texto */
+  font-size: 13px; /* Fonte pequena */
+  color: #374151; /* Cor escura */
+}
+
+/* Checkboxes do consentimento */
+.consent input[type="checkbox"] {
+  width: 18px; /* Largura */
+  height: 18px; /* Altura */
+  vertical-align: middle; /* Alinha verticalmente */
+  accent-color: #2d8f6f; /* Cor do check (quando suportado) */
+}
+
+/* Garantia de tamanho do checkbox */
+.consent-opt input {
+  width: 18px; /* Largura */
+  height: 18px; /* Altura */
+}
+
+/* Checkbox de concordância obrigatória */
+.consent-agree {
+  display: block; /* Layout em bloco */
+  margin-top: 6px; /* Espaço superior */
+  font-size: 13px; /* Fonte pequena */
+  color: #374151; /* Cor escura */
+}
+
+/* Mensagem de erro de campo */
+.field-error {
+  color: #b91c1c; /* Cor vermelha */
+  font-size: 13px; /* Fonte pequena */
+  margin-top: 6px; /* Espaço superior */
+}
+
+/* ===== AÇÕES DO FORMULÁRIO ===== */
+
+/* Container de ações (botões) */
+.form .actions {
+  display: flex; /* Layout flexível */
+  gap: 10px; /* Espaço entre botões */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  margin-top: 16px; /* Espaço superior */
+}
+
+/* Botões ocupam espaço igual */
+.form .actions .btn,
+.form .actions .btn-secondary {
+  flex: 1; /* Crescem igualmente */
+}
+
+/* Nota de registro */
+.register-note {
+  font-size: 13px; /* Fonte pequena */
+  color: #6b7280; /* Cor cinza */
+  text-align: center; /* Texto centralizado */
+  margin-top: 8px; /* Espaço superior */
+}
+
+/* Classe para esconder elementos (acessibilidade) */
+.sr-only {
+  position: absolute; /* Posição absoluta */
+  width: 1px; /* Largura mínima */
+  height: 1px; /* Altura mínima */
+  padding: 0; /* Remove padding */
+  margin: -1px; /* Margem negativa */
+  overflow: hidden; /* Esconde overflow */
+  clip: rect(0, 0, 0, 0); /* Recorta visualmente */
+  white-space: nowrap; /* Não quebra linha */
+  border: 0; /* Remove borda */
+}
+
+/* ===== MEDIA QUERIES (RESPONSIVIDADE) ===== */
+
+/* Telas menores que 720px */
+@media (max-width: 720px) {
+  .topo {
+    flex-direction: column; /* Empilha elementos verticalmente */
+    align-items: center; /* Centraliza */
+  }
+  .topo nav {
+    justify-content: center; /* Centraliza menu */
+  }
+}
+
+/* Telas menores que 420px */
+@media (max-width: 420px) {
+  .form-wrapper {
+    padding: 18px; /* Reduz padding */
+  }
+  .form-box {
+    padding: 20px; /* Reduz padding */
+  }
+}

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <title>Portal Imóveis</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index-full.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body>
-
+<body class="hero-page">
 
 <header class="topo">
 	<div class="top-inner">
@@ -20,54 +19,90 @@
 
 		<div class="actions">
 			<a href="login.html" class="btn btn-secondary">Entrar</a>
-			<a href="#" class="btn cta">Anunciar grátis</a>
+			<a href="anunciar.html" class="btn cta">Anunciar grátis</a>
 		</div>
 	</div>
 </header>
 
+<!-- Hero grande com imagem e caixa de busca centralizada -->
+<section class="hero">
+	<div class="hero-inner">
+		<div class="hero-content">
+			<h1>Encontre imóveis e realize o seu sonho</h1>
+			<p class="hero-sub">Aluguel e venda de casas e apartamentos com a facilidade que você precisa. Vamos encontrar o seu imóvel ideal?</p>
 
-
-
-
-<section class="filtros">
-<select>
-<option>Todos os Estados</option>
-<option>PB</option>
-<option>PE</option>
-<option>RN</option>
-<option>CE</option>
-</select>
-
-
-<select>
-<option>Venda</option>
-<option>Aluguel</option>
-</select>
-<button id="btnPesquisar" class="btn">Pesquisar</button>
+					<div class="search-card">
+						<div class="tabs">
+							<button class="tab active">Venda</button>
+							<button class="tab">Aluguel</button>
+						</div>
+						<form class="hero-search" action="#" onsubmit="return false;">
+							<select name="type">
+								<option>Tipo de imóvel</option>
+								<option>Casa</option>
+								<option>Apartamento</option>
+							</select>
+							<input type="search" placeholder="Pesquisar por localidade">
+							<button class="btn">Buscar</button>
+						</form>
+					</div>
+		</div>
+	</div>
 </section>
 
+<!-- Popular listings em faixa escura abaixo do hero -->
+<section class="popular">
+	<div class="popular-inner">
+		<h2>Imóveis Mais Acessados</h2>
+		<div class="popular-row" id="popularAds">
+			<!-- Os anúncios mais acessados serão carregados aqui via JavaScript -->
+		</div>
+	</div>
+</section>
 
-<section class="cards">
+<!-- Lista de anúncios estilo OLX abaixo da faixa popular -->
+<section class="listings-grid">
+	<div class="listings-inner">
+		<h2>Anúncios</h2>
+		<div class="grid">
+			<article class="ad-card">
+				<img src="https://via.placeholder.com/400x260" alt="Casa no Centro">
+				<div class="ad-body">
+					<h3>Casa no Centro</h3>
+					<p class="loc">Campina Grande - PB</p>
+					<div class="ad-meta"><strong class="price">R$ 450.000</strong><span class="type">Venda</span></div>
+				</div>
+			</article>
 
+			<article class="ad-card">
+				<img src="https://via.placeholder.com/400x260" alt="Apartamento mobiliado">
+				<div class="ad-body">
+					<h3>Apartamento mobiliado</h3>
+					<p class="loc">João Pessoa - PB</p>
+					<div class="ad-meta"><strong class="price">R$ 2.200 / mês</strong><span class="type">Aluguel</span></div>
+				</div>
+			</article>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x200">
-<h3>Casa no Centro</h3>
-<p>📍 Campina Grande - PB</p>
-<span>Venda</span>
-<strong>R$ 450.000</strong>
-</div>
+			<article class="ad-card">
+				<img src="https://via.placeholder.com/400x260" alt="Sítio tranquilo">
+				<div class="ad-body">
+					<h3>Sítio tranquilo</h3>
+					<p class="loc">Campina Grande - PB</p>
+					<div class="ad-meta"><strong class="price">R$ 320.000</strong><span class="type">Venda</span></div>
+				</div>
+			</article>
 
+			<article class="ad-card">
+				<img src="https://via.placeholder.com/400x260" alt="Kitnet ótima localização">
+				<div class="ad-body">
+					<h3>Kitnet ótima localização</h3>
+					<p class="loc">Campina Grande - PB</p>
+					<div class="ad-meta"><strong class="price">R$ 650 / mês</strong><span class="type">Aluguel</span></div>
+				</div>
+			</article>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x200">
-<h3>Apartamento mobiliado</h3>
-<p>📍 João Pessoa - PB</p>
-<span>Aluguel</span>
-<strong>R$ 2.200 / mês</strong>
-</div>
-
-
+		</div>
+	</div>
 </section>
 
 

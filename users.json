@@ -1,12 +1,59 @@
 [
   {
-    "name": "Maria Souza",
-    "email": "maria@example.com",
-    "password": "senha123"
+    "id": 1,
+    "name": "Amanda Regina",
+    "email": "amanda@example.com",
+    "password": "senha123",
+    "avatar": "https://via.placeholder.com/80",
+    "verified": true,
+    "online": true,
+    "memberSince": "2018",
+    "location": "Funcionários, João Pessoa - PB",
+    "phone": "+55 83 98765-4321",
+    "verifications": {
+      "email": true,
+      "phone": true,
+      "facebook": true,
+      "identity": true
+    },
+    "cadastroLevel": 75
   },
   {
+    "id": 2,
+    "name": "Maria Souza",
+    "email": "maria@example.com",
+    "password": "senha123",
+    "avatar": "https://via.placeholder.com/80",
+    "verified": true,
+    "online": false,
+    "memberSince": "2020",
+    "location": "Centro, Campina Grande - PB",
+    "phone": "+55 83 99876-5432",
+    "verifications": {
+      "email": true,
+      "phone": true,
+      "facebook": false,
+      "identity": false
+    },
+    "cadastroLevel": 50
+  },
+  {
+    "id": 3,
     "name": "João Silva",
     "email": "joao@example.com",
-    "password": "minhaSenha"
+    "password": "minhaSenha",
+    "avatar": "https://via.placeholder.com/80",
+    "verified": false,
+    "online": true,
+    "memberSince": "2022",
+    "location": "Bessa, João Pessoa - PB",
+    "phone": "+55 83 97654-3210",
+    "verifications": {
+      "email": true,
+      "phone": false,
+      "facebook": false,
+      "identity": false
+    },
+    "cadastroLevel": 25
   }
 ]
