@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirme seu e-mail</title>
+    <link rel="stylesheet" href="css/register-full.css">
+</head>
+<body class="hero-page">
+    <div class="form-wrapper">
+        <div class="form-box" style="text-align: center;">
+            <h2>Quase lá! 📧</h2>
+            <p>Enviamos um link de ativação para o seu e-mail.</p>
+            <p>Por favor, verifique sua caixa de entrada (e o spam) para ativar sua conta.</p>
+            <br>
+        </div>
+    </div>
+
+<script>
+    // 1. Pega o e-mail da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+
+    if (email) {
+        // 2. Função que checa no servidor
+        const checarStatus = async () => {
+            try {
+                const res = await fetch(`http://127.0.0.1:8000/api/checar-ativacao/?email=${email}`);
+                const data = await res.json();
+
+                if (data.ativo === true) {
+                    // 3. Se ativou, manda para o perfil!
+                    window.location.href = 'perfil.html';
+                }
+            } catch (err) {
+                console.error("Erro ao checar status");
+            }
+        };
+
+        // Executa a checagem a cada 3 segundos
+        const intervalo = setInterval(checarStatus, 3000);
+    }
+</script>
+
+</body>
+</html>

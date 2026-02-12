@@ -90,56 +90,9 @@
 </main>
   <div id="register-message" class="login-message" aria-live="polite" style="margin:12px 0;text-align:center"></div>
 
-    <script>
-  (function(){
-    // Validação do checkbox de concordância antes do envio
-    const form = document.querySelector('form.form');
-    const agree = document.getElementById('agreeTerms');
-    const agreeError = document.getElementById('agreeError');
-    if (form) {
-      form.addEventListener('submit', function(e){
-        if (!agree.checked) {
-          e.preventDefault();
-          agreeError.style.display = 'block';
-          agree.focus();
-          return false;
-        }
-      });
-    }
-    const radios = document.querySelectorAll('input[name="tipo_conta"]');
-    const dateRow = document.getElementById('dateRow');
-    const dateInput = document.getElementById('dataNascimento');
-    const cpfRow = document.getElementById('cpfRow');
-    const cnpjRow = document.getElementById('cnpjRow');
-    const cpfInput = document.getElementById('cpfInput');
-    const cnpjInput = document.getElementById('cnpjInput');
-    function update() {
-      const sel = document.querySelector('input[name="tipo_conta"]:checked');
-      const val = sel ? sel.value : 'pf';
-      if (val === 'pf') {
-        dateRow.style.display = '';
-        cpfRow.style.display = '';
-        cnpjRow.style.display = 'none';
-        dateInput.required = true;
-        cpfInput.required = true;
-        cnpjInput.required = false;
-      } else {
-        dateRow.style.display = 'none';
-        cpfRow.style.display = 'none';
-        cnpjRow.style.display = '';
-        dateInput.required = false;
-        cpfInput.required = false;
-        cnpjInput.required = true;
-      }
-    }
-    radios.forEach(r => r.addEventListener('change', update));
-    document.addEventListener('DOMContentLoaded', update);
-    update();
-  })();
-</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/register.js"></script>
+<script src="js/register.js"> </script>
 
 </body>
 </html>

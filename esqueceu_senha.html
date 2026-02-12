@@ -48,22 +48,42 @@
     </div>
   </main>
 
-  <script>
-    (function(){
-      const form = document.getElementById('forgotForm');
-      const success = document.getElementById('forgotSuccess');
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        const email = form.email;
-        if (!email.checkValidity()) {
-          email.reportValidity();
-          return;
+ <script>
+  (function(){
+    const form = document.getElementById('forgotForm');
+    const success = document.getElementById('forgotSuccess');
+    const submitBtn = form.querySelector('button');
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      
+      const emailValue = document.getElementById('resetEmail').value;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      try {
+        const response = await fetch('http://localhost:3333/esqueci-senha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailValue })
+        });
+
+        if (response.ok) {
+          // Esconde o formulário e mostra a mensagem de sucesso da sua cunhada
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+        } else {
+          alert('Ocorreu um erro ao processar sua solicitação. Tente novamente.');
         }
-        // Simulação de envio: esconder formulário e mostrar mensagem de sucesso
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-      });
-    })();
-  </script>
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Servidor offline. Verifique se o backend está rodando na porta 3333.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar link de recuperação';
+      }
+    });
+  })();
+</script> 
 </body>
 </html>
