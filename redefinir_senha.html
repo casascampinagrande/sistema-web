@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Criar Nova Senha - Valorize</title>
+    <link rel="stylesheet" href="css/generic-full.css">
+</head>
+
+<body class="hero-page">
+
+    <main class="page-center">
+        <div class="card">
+            <h1 class="card-title">Nova Senha</h1>
+            <p class="muted">Digite sua nova senha de acesso abaixo.</p>
+
+            <form id="resetForm" class="form">
+                <label for="password">Nova Senha</label>
+                <input id="password" type="password" placeholder="Mínimo 6 caracteres" required>
+
+                <label for="confirmPassword">Confirmar Nova Senha</label>
+                <input id="confirmPassword" type="password" placeholder="Repita a senha" required>
+
+                <div id="reset-message" style="margin-top: 10px; font-weight: bold; text-align: center;"></div>
+
+                <button type="submit" class="btn" style="margin-top: 15px;">Atualizar Senha</button>
+            </form>
+
+            <div id="resetSuccess" class="hidden" style="text-align: center;">
+                <p style="color: #28a745; font-weight: bold;">✅ Senha alterada com sucesso!</p>
+                <br>
+                <a href="login.html" class="btn">Ir para o Login</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            const form = document.getElementById('resetForm');
+            const successDiv = document.getElementById('resetSuccess');
+            const msg = document.getElementById('reset-message');
+
+            // 1. Captura e Limpeza dos parâmetros da URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Captura o valor bruto e limpa o lixo de codificação (como o 3D ou %3D)
+            let rawUid = urlParams.get('uid') || "";
+            let uid = decodeURIComponent(rawUid).replace(/^3D/, "").replace(/\/$/, "");
+
+            let rawToken = urlParams.get('token') || "";
+            let token = decodeURIComponent(rawToken).replace(/^3D/, "").replace(/\/$/, "");
+            
+
+            console.log("UID final:", uid);
+            console.log("Token final:", token);
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const password = document.getElementById('password').value; 
+                const confirm = document.getElementById('confirmPassword').value;
+
+                // Validações básicas no Front
+                if (password.length < 6) {
+                    msg.style.color = '#d9534f';
+                    msg.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+                    return;
+                }
+
+                if (password !== confirm) {
+                    msg.style.color = '#d9534f';
+                    msg.textContent = 'As senhas não coincidem!';
+                    return;
+                }
+
+                // Se não houver UID ou Token na URL, nem tenta enviar
+                if (!uid || !token) {
+                    msg.style.color = '#d9534f';
+                    msg.textContent = 'Link de recuperação inválido (falta UID/Token).';
+                    return;
+                }
+
+                try {
+                    msg.style.color = 'blue';
+                    msg.textContent = 'Processando...';
+
+                    const response = await fetch('http://127.0.0.1:8000/api/password-reset-confirm/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            uid: uid,
+                            token: token,
+                            nova_senha: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        form.classList.add('hidden');
+                        successDiv.classList.remove('hidden');
+                        msg.textContent = '';
+                    } else {
+                        msg.style.color = '#d9534f';
+                        msg.textContent = data.erro || 'Link expirado ou inválido. Tente gerar um novo e-mail.';
+                    }
+                } catch (error) {
+                    console.error("Erro no fetch:", error);
+                    msg.style.color = '#d9534f';
+                    msg.textContent = 'Erro ao conectar com o servidor.';
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

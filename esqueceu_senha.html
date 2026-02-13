@@ -62,18 +62,18 @@
       submitBtn.textContent = 'Enviando...';
 
       try {
-        const response = await fetch('http://localhost:3333/esqueci-senha', {
+        const response = await fetch('http://127.0.0.1:8000/api/password-reset/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: emailValue })
         });
 
         if (response.ok) {
-          // Esconde o formulário e mostra a mensagem de sucesso da sua cunhada
           form.classList.add('hidden');
           success.classList.remove('hidden');
         } else {
-          alert('Ocorreu um erro ao processar sua solicitação. Tente novamente.');
+          const data = await response.json();
+          alert(data.mensagem || 'Erro ao processar solicitação.');
         }
       } catch (error) {
         console.error('Erro:', error);
