@@ -24,12 +24,12 @@
         // 2. Função que checa no servidor
         const checarStatus = async () => {
             try {
-                const res = await fetch(`http://127.0.0.1:8000/api/checar-ativacao/?email=${email}`);
+                const res = await fetch(`/api/checar-ativacao/?email=${email}`);
                 const data = await res.json();
 
                 if (data.ativo === true) {
                     // 3. Se ativou, manda para o perfil!
-                    window.location.href = 'perfil.html';
+                    window.location.href = '{% url "perfil" %}';
                 }
             } catch (err) {
                 console.error("Erro ao checar status");

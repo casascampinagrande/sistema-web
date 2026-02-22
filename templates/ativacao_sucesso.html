@@ -15,14 +15,14 @@
             <p>Seu cadastro na <strong>Valorize</strong> está pronto.</p>
             <p>Você será redirecionado para o seu perfil em instantes...</p>
             <br>
-            <a href="perfil.html" class="btn">Ir para o Perfil agora</a>
+            <a href="{% url 'perfil' %}" class="btn">Ir para o Perfil agora</a>
         </div>
     </div>
 
     <script>
         // Redireciona para o perfil automaticamente após 3 segundos
         setTimeout(() => {
-            window.location.href = 'perfil.html';
+            window.location.href = "{% url 'perfil' %}";
         }, 3000);
     </script>
 </body>

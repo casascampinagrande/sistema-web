@@ -1,0 +1,14 @@
+# Ambientes virtuais
+venv/
+.env
+
+# Banco de dados local (não se sobe o banco de dados)
+db.sqlite3
+
+# Arquivos de mídia e estáticos enviados por usuários
+media/
+staticfiles/
+
+# Python cache
+__pycache__/
+*.pyc

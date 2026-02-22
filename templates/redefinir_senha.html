@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Criar Nova Senha - Valorize</title>
-    <link rel="stylesheet" href="css/generic-full.css">
+    <link rel="stylesheet" href="css/geral.css">
 </head>
 
 <body class="hero-page">
@@ -30,7 +30,7 @@
             <div id="resetSuccess" class="hidden" style="text-align: center;">
                 <p style="color: #28a745; font-weight: bold;">✅ Senha alterada com sucesso!</p>
                 <br>
-                <a href="login.html" class="btn">Ir para o Login</a>
+                <a href="{% url 'login' %}" class="btn">Ir para o Login</a>
             </div>
         </div>
     </main>
@@ -85,7 +85,7 @@
                     msg.style.color = 'blue';
                     msg.textContent = 'Processando...';
 
-                    const response = await fetch('http://127.0.0.1:8000/api/password-reset-confirm/', {
+                    const response = await fetch('{% url "password_reset_confirm_api" %}', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({

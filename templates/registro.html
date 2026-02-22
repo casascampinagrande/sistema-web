@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro - Valorize</title>
+  {% load static %}
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-b from-white to-green-400 min-h-screen flex flex-col">
+
+<!-- HEADER -->
+<header class="bg-white/70 backdrop-blur border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <a href="{% url 'home' %}" class="text-xl font-bold text-gray-900">
+      Valorize
+    </a>
+
+    <nav class="flex gap-6 font-semibold">
+      <a href="{% url 'home' %}" class="text-gray-800 hover:text-green-700 transition">
+        Início
+      </a>
+      <a href="{% url 'suporte' %}" class="text-gray-800 hover:text-green-700 transition">
+        Suporte
+      </a>
+    </nav>
+
+    <div class="flex gap-3">
+      <a href="{% url 'login' %}"
+         class="px-4 py-2 rounded-lg border border-gray-300 text-gray-800 font-semibold hover:bg-gray-100 transition">
+        Entrar
+      </a>
+
+      <a href="#"
+         class="px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:brightness-95 transition">
+        Anunciar grátis
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- CONTEÚDO -->
+<main class="flex-1 flex items-center justify-center px-4 py-12">
+
+  <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-8">
+
+    <h2 class="text-2xl font-semibold text-gray-800 text-center mb-8">
+      Crie a sua conta. É grátis!
+    </h2>
+
+    <form method="post" class="space-y-5">
+      {% csrf_token %}
+
+      <!-- Tipo de conta -->
+      <fieldset class="space-y-3">
+        <legend class="text-sm font-semibold text-gray-700">
+          Escolha o tipo da sua conta
+        </legend>
+
+        <div class="flex gap-6">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="tipo_conta" value="pf" checked
+              class="accent-green-600">
+            <span class="text-gray-700">Pessoa Física</span>
+          </label>
+
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="tipo_conta" value="pj"
+              class="accent-green-600">
+            <span class="text-gray-700">Pessoa Jurídica</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Inputs padrão -->
+      <input type="text" name="nome" placeholder="Nome completo" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <input type="text" name="nome_preferido" placeholder="Como prefere ser chamado (ex: João, Maria)"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <input type="text" id="cpfInput" name="cpf" placeholder="CPF"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <input type="text" id="cnpjInput" name="cnpj" placeholder="CNPJ"
+        class="hidden w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <div id="dateRow">
+        <input type="date" name="data_nascimento" placeholder="Data de nascimento" required
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+        </div>
+      <input type="email" name="email" placeholder="E-mail" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <input type="password" name="senha" placeholder="Senha (mín. 6 caracteres)" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <input type="password" name="confirmar_senha" placeholder="Confirmar senha" required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-4 focus:ring-green-200 focus:border-green-600 outline-none transition">
+
+      <!-- Consentimento -->
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-3 text-sm text-gray-600">
+
+        <p>
+          Ao continuar, você concorda com os
+          <a href="{% url 'terms' %}" class="text-green-700 hover:underline">Termos de Uso</a>
+          e a
+          <a href="{% url 'privacy' %}" class="text-green-700 hover:underline">Política de Privacidade</a>.
+        </p>
+
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" id="agreeTerms" required class="mt-1 accent-green-600">
+          <span>Eu concordo com os Termos e a Política de Privacidade</span>
+        </label>
+
+        <label class="flex items-start gap-2 cursor-pointer">
+          <input type="checkbox" name="opt_in" value="1" checked class="mt-1 accent-green-600">
+          <span>Desejo receber comunicações da Valorize</span>
+        </label>
+
+        <div id="agreeError"
+             class="hidden text-red-600 text-xs">
+          Você precisa concordar com os Termos para continuar.
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <div class="flex flex-col sm:flex-row gap-4 pt-4">
+        <button type="submit"
+          class="w-full sm:w-auto px-6 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition">
+          Cadastrar
+        </button>
+
+        <a href="{% url 'login' %}"
+           class="w-full sm:w-auto text-center px-6 py-3 rounded-lg border border-gray-300 font-semibold text-gray-700 hover:bg-gray-100 transition">
+          Voltar
+        </a>
+      </div>
+
+      <div id="register-message"
+           class="text-center text-sm mt-4"></div>
+
+    </form>
+
+  </div>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/register.js' %}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const radios = document.querySelectorAll('input[name="tipo_conta"]');
+  const cpfInput = document.getElementById('cpfInput');
+  const cnpjInput = document.getElementById('cnpjInput');
+  const dateRow = document.getElementById('dateRow');
+
+  function atualizarCampos() {
+    const selecionado = document.querySelector('input[name="tipo_conta"]:checked').value;
+
+    if (selecionado === 'pf') {
+      cpfInput.classList.remove('hidden');
+      dateRow.classList.remove('hidden');
+      cnpjInput.classList.add('hidden');
+    } else {
+      cpfInput.classList.add('hidden');
+      dateRow.classList.add('hidden');
+      cnpjInput.classList.remove('hidden');
+    }
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', atualizarCampos);
+  });
+
+  atualizarCampos(); // executa ao carregar
+
+});
+</script>
+</body>
+</html>
